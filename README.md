@@ -3,17 +3,17 @@ Malla curricular interactiva de Ingeniería en Negocios Internacionales - Univer
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Malla Curricular - Ingeniería en Negocios Internacionales</title>
+  <title>Malla Interactiva - Ingeniería en Negocios Internacionales</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #ffe6f0; /* color rosado suave */
-      color: #5a2a4d;
+      background: #fff0f5;
       padding: 20px;
+      color: #5a2a4d;
     }
     h1 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     table {
       width: 100%;
@@ -24,44 +24,68 @@ Malla curricular interactiva de Ingeniería en Negocios Internacionales - Univer
     th, td {
       border: 1px solid #cda1b6;
       padding: 12px;
-      text-align: center;
+      text-align: left;
     }
     th {
       background-color: #f9c2d1;
       font-weight: bold;
+      text-align: center;
     }
-    td.aprobado {
-      background-color: #d6f5d6; /* verde claro para aprobado */
-    }
-    td.en-curso {
-      background-color: #fff5c2; /* amarillo claro para en curso */
+    tr.aprobado td.ramo {
+      text-decoration: line-through;
+      color: gray;
     }
   </style>
 </head>
 <body>
-  <h1>Malla Curricular - Ingeniería en Negocios Internacionales</h1>
+
+  <h1>Malla Curricular Interactiva</h1>
+  <p>Marca los ramos que ya aprobaste para que se tachen.</p>
+
   <table>
-    <tr>
-      <th>Semestre</th>
-      <th>Ramo</th>
-      <th>Estado</th>
-    </tr>
-    <tr>
-      <td>1°</td>
-      <td>Álgebra</td>
-      <td class="en-curso">En curso</td>
-    </tr>
-    <tr>
-      <td>1°</td>
-      <td>Gestión de Organizaciones</td>
-      <td class="aprobado">Aprobado</td>
-    </tr>
-    <tr>
-      <td>2°</td>
-      <td>Habilidades Comunicacionales</td>
-      <td class="en-curso">En curso</td>
-    </tr>
-    <!-- Agrega aquí más filas -->
+    <thead>
+      <tr>
+        <th>Semestre</th>
+        <th>Ramo</th>
+        <th>Aprobado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center;">1°</td>
+        <td class="ramo">Álgebra</td>
+        <td style="text-align:center;">
+          <input type="checkbox" onchange="toggleAprobado(this)">
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">1°</td>
+        <td class="ramo">Gestión de Organizaciones</td>
+        <td style="text-align:center;">
+          <input type="checkbox" onchange="toggleAprobado(this)">
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align:center;">1°</td>
+        <td class="ramo">Habilidades Comunicacionales</td>
+        <td style="text-align:center;">
+          <input type="checkbox" onchange="toggleAprobado(this)">
+        </td>
+      </tr>
+      <!-- Agrega más ramos aquí -->
+    </tbody>
   </table>
+
+  <script>
+    function toggleAprobado(checkbox) {
+      const fila = checkbox.closest('tr');
+      if (checkbox.checked) {
+        fila.classList.add('aprobado');
+      } else {
+        fila.classList.remove('aprobado');
+      }
+    }
+  </script>
+
 </body>
 </html>
